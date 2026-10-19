@@ -1,0 +1,8 @@
+Date,Product,Sales,Quantity,Region
+2026-10-01,Laptop,50000,2,South
+2026-10-02,Mouse,500,5,North
+2026-10-03,Keyboard,1500,3,South
+2026-10-04,Monitor,12000,2,East
+2026-10-05,Laptop,50000,2,South
+2026-10-06,Mouse,,4,West
+2026-10-07,Keyboard,1500,3,South
