@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const [activeTab, setActiveTab] = useState("overview");
   const [file, setFile] = useState(null)
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -48,10 +49,26 @@ function App() {
           <span>DataSleuth <small>AI</small></span>
         </div>
 
-        <p className="nav-heading">WORKSPACE</p>
-        <div className="nav-item active">▦ &nbsp; Data Overview</div>
-        <div className="nav-item">↗ &nbsp; Data Analysis</div>
-        <div className="nav-item">◷ &nbsp; Reports</div>
+        <div
+  className={`nav-item ${activeTab === "overview" ? "active" : ""}`}
+  onClick={() => setActiveTab("overview")}
+>
+  ▦ &nbsp; Data Overview
+</div>
+
+<div
+  className={`nav-item ${activeTab === "analysis" ? "active" : ""}`}
+  onClick={() => setActiveTab("analysis")}
+>
+  ↗ &nbsp; Data Analysis
+</div>
+
+<div
+  className={`nav-item ${activeTab === "reports" ? "active" : ""}`}
+  onClick={() => setActiveTab("reports")}
+>
+  ◷ &nbsp; Reports
+</div>
 
         <div className="sidebar-bottom">
           <div className="status-dot" />
@@ -62,7 +79,16 @@ function App() {
 
       <main className="main">
         <header className="topbar">
-          <span>Workspace / Overview</span>
+  <span>
+    Workspace / {
+      activeTab === "overview"
+        ? "Overview"
+        : activeTab === "analysis"
+        ? "Data Analysis"
+        : "Reports"
+    }
+  </span>
+  
           <span className="profile">DS</span>
         </header>
 
